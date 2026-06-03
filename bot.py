@@ -1,4 +1,4 @@
-# RaceSharp import os
+import os
 import logging
 from telegram import Update
 from telegram.ext import (
