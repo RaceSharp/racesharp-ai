@@ -15,7 +15,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -58,10 +58,16 @@ Return:
 Keep response concise and easy to read.
 """
 
+        with open(image_path, "rb") as img:
+            image_data = img.read()
+
         response = model.generate_content(
             [
                 prompt,
-                {"mime_type": "image/jpeg", "data": open(image_path, "rb").read()},
+                {
+                    "mime_type": "image/jpeg",
+                    "data": image_data,
+                },
             ]
         )
 
