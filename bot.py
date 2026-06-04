@@ -20,7 +20,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "🏇 RaceSharp AI Online\n\n"
+        "🚨 VERSION 12345 🚨\n\n"
         "Send me a horse racing or greyhound screenshot."
     )
 
