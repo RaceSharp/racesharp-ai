@@ -1,17 +1,19 @@
 import requests
-from bs4 import BeautifulSoup
 
 
-def get_atr_page(url):
+def get_atr_page():
 
-    headers = {
-        "User-Agent": "Mozilla/5.0"
-    }
+    url = "https://m.attheraces.com/racecards"
 
     response = requests.get(
         url,
-        headers=headers,
+        headers={
+            "User-Agent": "Mozilla/5.0"
+        },
         timeout=15
     )
 
-    return response.text
+    return {
+        "status_code": response.status_code,
+        "length": len(response.text)
+    }
