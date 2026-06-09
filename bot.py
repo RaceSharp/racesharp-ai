@@ -28,7 +28,9 @@ async def race(update: Update, context: ContextTypes.DEFAULT_TYPE):
 try:
     args = context.args
     if len(args) < 2:
-        raise Exception("Missing race time or track")
+        raise ValueError(
+            "Please provide a time and track."
+        )
     time = args[0]
     track = " ".join(args[1:])
     report = race_command(track, time)
@@ -54,7 +56,10 @@ async def testatr(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 await atr(update, context)
 
-async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def handle_photo(
+update: Update,
+context: ContextTypes.DEFAULT_TYPE
+):
 
 try:
     await update.message.reply_text(
@@ -98,6 +103,5 @@ app.add_handler(
 print("RaceSharp Final Edition Online")
 app.run_polling()
 
-if __name__ == "__main__":
-    main()
+if name == “main”:
 main()
