@@ -4,8 +4,10 @@ from bs4 import BeautifulSoup
 
 def lookup_race(track, time):
 
+    url = f"https://m.attheraces.com/racecard/{track}/"
+
     return {
         "track": track,
         "time": time,
-        "status": "live_lookup_pending"
+        "source": url
     }
