@@ -17,14 +17,9 @@ def analyze_race(race):
             {
                 "role": "user",
                 "content": f"""
-{
-    "role": "user",
-    "content": f"""
 Race Data:
 
 {race}
-"""
-}
 
 Analyse this race.
 """
