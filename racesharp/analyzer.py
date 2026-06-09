@@ -17,8 +17,14 @@ def analyze_race(race):
             {
                 "role": "user",
                 "content": f"""
-Track: {race['track']}
-Time: {race['time']}
+{
+    "role": "user",
+    "content": f"""
+Race Data:
+
+{race}
+"""
+}
 
 Analyse this race.
 """
