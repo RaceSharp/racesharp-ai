@@ -1,11 +1,4 @@
-from openai import OpenAI
-from racesharp.config import OPENAI_API_KEY
-from racesharp.prompt import RACESHARP_PROMPT
-
-client = OpenAI(api_key=OPENAI_API_KEY)
-
-
-def analyze_image(image_url):
+try:
 
     response = client.chat.completions.create(
         model="gpt-5-mini",
@@ -29,7 +22,12 @@ def analyze_image(image_url):
                     }
                 ]
             }
-        ]
+        ],
+        max_tokens=1500
     )
 
     return response.choices[0].message.content
+
+except Exception as e:
+
+    return f"RaceSharp Error:\n\n{str(e)}"
