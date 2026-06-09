@@ -1,6 +1,3 @@
 python-telegram-bot==21.6
-openai==1.93.0
+openai
 Pillow
-requests
-beautifulsoup4
-lxml
