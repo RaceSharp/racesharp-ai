@@ -13,7 +13,7 @@ from racesharp.analyzer import analyze_image
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 await update.message.reply_text(
-“🏇 RaceSharp Final Edition Online\n\n”
+"RaceSharp Final Edition Online\n\n"
 “Commands:\n”
 “/race 16:53 Salisbury\n\n”
 “Or send a horse racing screenshot.”
