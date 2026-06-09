@@ -46,7 +46,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         await file.download_to_drive(image_path)
 
-        prompt = prompt = “””
+        prompt = “””
 You are RaceSharp AI V6.0 – an elite horse racing and greyhound racing analyst, market interpreter and race-mapping specialist.
 
 Your objective is not simply to pick winners.
