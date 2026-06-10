@@ -54,9 +54,22 @@ async def race(
             race_time,
         )
 
-        await update.message.reply_text(
-            report
-        )
+        if not report:
+            report = "No report generated."
+
+        chunks = [
+            report[i:i + 4000]
+            for i in range(
+                0,
+                len(report),
+                4000,
+            )
+        ]
+
+        for chunk in chunks:
+            await update.message.reply_text(
+                chunk
+            )
 
     except Exception as e:
 
@@ -156,9 +169,22 @@ async def handle_photo(
             image_url
         )
 
-        await update.message.reply_text(
-            report
-        )
+        if not report:
+            report = "No report generated."
+
+        chunks = [
+            report[i:i + 4000]
+            for i in range(
+                0,
+                len(report),
+                4000,
+            )
+        ]
+
+        for chunk in chunks:
+            await update.message.reply_text(
+                chunk
+            )
 
     except Exception as e:
 
