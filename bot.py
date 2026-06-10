@@ -14,7 +14,7 @@ from racesharp.atr_scraper import get_atr_page
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-await update.message.reply_text(
+    await update.message.reply_text(
     "RaceSharp Final Edition Online\n\n"
     "Commands:\n"
     "/race 16:53 Salisbury\n"
