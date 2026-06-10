@@ -1,52 +1,35 @@
 import requests
 from bs4 import BeautifulSoup
 
+url = "https://m.attheraces.com/racecards"
 
-def get_atr_page():
+response = requests.get(
+    url,
+    headers={
+        "User-Agent": "Mozilla/5.0"
+    },
+    timeout=15
+)
 
-    url = "https://m.attheraces.com/racecards"
+soup = BeautifulSoup(
+    response.text,
+    "html.parser"
+)
 
-    response = requests.get(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0"
-        },
-        timeout=15
+texts = []
+
+for tag in soup.find_all(
+    ["a", "div", "span"]
+):
+
+    text = tag.get_text(
+        strip=True
     )
 
-    return {
-        "status_code": response.status_code,
-        "length": len(response.text)
-    }
+    if (
+        text
+        and len(text) > 3
+    ):
+        texts.append(text)
 
-
-def get_racecards():
-
-    url = "https://m.attheraces.com/racecards"
-
-    response = requests.get(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0"
-        },
-        timeout=15
-    )
-
-    soup = BeautifulSoup(
-        response.text,
-        "html.parser"
-    )
-
-    races = []
-
-    for link in soup.find_all("a"):
-
-        text = link.get_text(
-            strip=True
-        )
-
-        if ":" in text:
-
-            races.append(text)
-
-    return races[:50]
+return texts[:100]
