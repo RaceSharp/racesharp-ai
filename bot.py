@@ -103,20 +103,27 @@ async def testcards(
     context: ContextTypes.DEFAULT_TYPE,
 ):
 
+    await update.message.reply_text(
+        "TESTCARDS STARTED"
+    )
+
     try:
 
         cards = get_racecards()
+
+        await update.message.reply_text(
+            f"Found {len(cards)} cards"
+        )
 
         if not cards:
 
             await update.message.reply_text(
                 "No racecards found."
             )
-
             return
 
         await update.message.reply_text(
-            "\n".join(cards[:30])
+            "\n".join(cards[:20])
         )
 
     except Exception as e:
