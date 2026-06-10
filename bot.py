@@ -25,7 +25,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def race(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-try:
+    try:
     args = context.args
     if len(args) < 2:
         raise ValueError(
